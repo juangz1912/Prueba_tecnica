@@ -85,9 +85,6 @@ body {
     text-decoration: underline;
 }
 
-/* Estilos específicos para páginas */
-
-/* Estilo para el contenido de la página home */
 .home-content {
     max-width: 600px; /* Ajusta el ancho máximo según tu diseño */
     margin: 20px;

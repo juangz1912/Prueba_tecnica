@@ -6,12 +6,24 @@
         <ul>
             {% for reservation in reservations %}
             <li>
-                {{ reservation.amenity.name }} for {{ reservation.shift }}
-                
+                {{ reservation.amenity.name }} para {{ reservation.shift }}
+                <form method="post" action="{% url 'base:my_reservations' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="reservation_id" value="{{ reservation.id }}">
+                    <button type="submit" class="btn-cancel">Cancelar Reserva</button>
+                </form>
             </li>
             {% endfor %}
         </ul>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="message">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
         <a class="signup-link" href="{% url 'base:home' %}">Volver al inicio</a>
     </div>
 </div>
 {% endblock content %}
+

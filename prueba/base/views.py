@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Amenity, Reservation
 from .forms import ReservationForm
+from django.contrib import messages
 
 
 @login_required
@@ -27,8 +28,16 @@ def create_reservation(request, amenity_id):
 
 @login_required
 def my_reservations(request):
+    if request.method == 'POST':
+        reservation_id = request.POST.get('reservation_id')
+        reservation = get_object_or_404(Reservation, id=reservation_id)
+        if reservation.user == request.user:
+            reservation.delete()
+            messages.success(request, '¡Reserva cancelada correctamente!')
+            return redirect('base:my_reservations')
     reservations = Reservation.objects.filter(user=request.user)
     return render(request, 'my_reservation.html', {'reservations': reservations})
+
 
 def authView(request):
     if request.method == "POST":
