@@ -14,11 +14,6 @@ body {
     background-color: #fff;
 }
 
-.container {
-    max-width: 600px; /* Ajusta el ancho máximo según tu diseño */
-    margin: 20px;
-}
-
 .shadow-wrap {
     border-radius: 5px;
     padding: 25px;
@@ -28,18 +23,94 @@ body {
 
 .form-wrap {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 70px;
 }
 
-ul {
+.form-wrap form * {
+    display: block;
+    width: 100%;
+}
+
+.form-wrap form label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 26px;
+}
+
+.form-wrap form input {
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: 1px solid #DAE1F5;
+    background: #FFF;
+    color: #545D7A;
+    margin-bottom: 10px; /* Añadido para separación entre inputs */
+}
+
+#id_username {
+    margin-bottom: 20px;
+}
+
+.form-wrap button {
+    border-radius: 5px;
+    background: #10182F;
+    color: #FFF;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px 68px;
+    font-weight: 700;
+    border: 1px solid transparent;
+    margin-top: 30px;
+    line-height: 26px;
+}
+
+.form-wrap button:hover {
+    background-color: #fff;
+    color: #10182F;
+    border-color: #10182F;
+}
+
+.signup-link {
+    color: #10182F;
+    font-size: 15px;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 25px;
+    display: block;
+    text-decoration: none;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilos específicos para páginas */
+
+/* Estilo para el contenido de la página home */
+.home-content {
+    max-width: 600px; /* Ajusta el ancho máximo según tu diseño */
+    margin: 20px;
+}
+
+/* Estilo para la lista de reservas */
+.reservations-list {
     list-style-type: none;
     padding: 0;
 }
 
-ul li {
+.reservations-list li {
     margin-bottom: 10px;
+}
+
+.reservations-list li a {
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+.reservations-list li a:hover {
+    text-decoration: underline;
 }
 
 .btn-reserve {
@@ -56,31 +127,4 @@ ul li {
 
 .btn-reserve:hover {
     background-color: #0056b3;
-}
-
-a {
-    text-decoration: none;
-    color: #007bff;
-    margin-right: 10px;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Estilo para el enlace "Mis Reservas" */
-.reservations-link {
-    display: block;
-    margin-top: 20px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* Estilo para el enlace "Logout" */
-.logout-link {
-    display: block;
-    margin-top: 10px;
-    color: #dc3545;
-    font-size: 16px;
-    font-weight: bold;
 }

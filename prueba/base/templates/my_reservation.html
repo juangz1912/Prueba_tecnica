@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Mis Reservas</h1>
-<ul>
-    {% for reservation in reservations %}
-    <li>
-        {{ reservation.amenity.name }} from {{ reservation.start_time }} to {{ reservation.end_time }}
-    </li>
-    {% endfor %}
-</ul>
-<a href="{% url 'base:home' %}">Volver al inicio</a>
+<div class="shadow-wrap">
+    <div class="form-wrap">
+        <h3>Mis Reservas</h3>
+        <ul>
+            {% for reservation in reservations %}
+            <li>
+                {{ reservation.amenity.name }} from {{ reservation.start_time }} to {{ reservation.end_time }}
+            </li>
+            {% endfor %}
+        </ul>
+        <a class="signup-link" href="{% url 'base:home' %}">Volver al inicio</a>
+    </div>
+</div>
 {% endblock content %}

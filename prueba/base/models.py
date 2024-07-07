@@ -20,3 +20,11 @@ class Reservation(models.Model):
     def __str__(self):
         return f'{self.amenity} reserved by {self.user} from {self.start_time} to {self.end_time}'
 
+    @staticmethod
+    def is_time_available(amenity, start_time, end_time):
+        reservations = Reservation.objects.filter(
+            amenity=amenity,
+            start_time__lt=end_time,
+            end_time__gt=start_time
+        )
+        return not reservations.exists()
