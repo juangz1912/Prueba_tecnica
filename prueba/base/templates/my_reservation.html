@@ -6,7 +6,8 @@
         <ul>
             {% for reservation in reservations %}
             <li>
-                {{ reservation.amenity.name }} from {{ reservation.start_time }} to {{ reservation.end_time }}
+                {{ reservation.amenity.name }} for {{ reservation.shift }}
+                
             </li>
             {% endfor %}
         </ul>

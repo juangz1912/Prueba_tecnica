@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Amenity, Reservation
 from .forms import ReservationForm
-from django.utils import timezone
+
 
 @login_required
 def home(request):
@@ -27,7 +27,7 @@ def create_reservation(request, amenity_id):
 
 @login_required
 def my_reservations(request):
-    reservations = Reservation.objects.filter(user=request.user, end_time__gt=timezone.now())
+    reservations = Reservation.objects.filter(user=request.user)
     return render(request, 'my_reservation.html', {'reservations': reservations})
 
 def authView(request):
@@ -35,7 +35,8 @@ def authView(request):
         form = UserCreationForm(request.POST or None)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('base:home')
     else:
         form = UserCreationForm()
     return render(request, "registration/signup.html", {"form": form})
+
