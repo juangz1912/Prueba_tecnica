@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Reservar {{ amenity.name }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Reservar</button>
+</form>
+<a href="{% url 'base:home' %}">Cancelar</a>
+{% endblock content %}

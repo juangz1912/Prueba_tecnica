@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-home page
+<h1>Amenidades</h1>
+<ul>
+    {% for amenity in amenities %}
+    <li>
+        {{ amenity.name }}
+        <a href="{% url 'base:create_reservation' amenity.id %}">
+            <button class="btn-reserve">Reservar</button>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'base:my_reservations' %}">Mis Reservas</a>
 <a href="{% url 'base:logout' %}">logout</a>
 {% endblock content %}
