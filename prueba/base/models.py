@@ -38,3 +38,4 @@ class Reservation(models.Model):
     def is_shift_available(amenity, shift):
         reservations = Reservation.objects.filter(amenity=amenity, shift=shift)
         return not reservations.exists()
+

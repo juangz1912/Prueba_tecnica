@@ -26,6 +26,7 @@ def create_reservation(request, amenity_id):
         form = ReservationForm(amenity=amenity)
     return render(request, 'create_reservation.html', {'form': form, 'amenity': amenity})
 
+
 @login_required
 def my_reservations(request):
     if request.method == 'POST':
